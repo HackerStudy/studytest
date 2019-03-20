@@ -18,8 +18,9 @@ public class TestTextFile {
         String path2  = "D:\\ToolSoftWare\\IDEA\\WorkSpace\\MyProject\\studytest\\src\\main\\java\\com\\hackerstudy\\studytest\\set\\util\\TextFile.java";
         try {
             String file = TextFile.read(pa);
-            System.out.println("fileContent:"+file);
-            TextFile.write("src\\main\\resources\\static\\file\\test\\TextFile.txt", file);
+            System.out.println("fileContent:");
+            System.out.println(file);
+            TextFile.write("src\\main\\resources\\static\\file\\test\\text\\TextFile.txt", file);
             TextFile text = new TextFile(path2);
             for(String s:text){
                 System.out.println(s);

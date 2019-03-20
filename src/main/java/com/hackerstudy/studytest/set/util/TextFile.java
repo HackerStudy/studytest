@@ -37,9 +37,17 @@ public class TextFile extends ArrayList<String> {
     //往文件写入 text
     public static void write(String fileName,String text) throws IOException{
         File file = new File(fileName);
+        File fileDirectory = new File(getFrontPath(file.getAbsolutePath()));
         System.out.println(file.getAbsoluteFile());
-        if (!file.exists()) {
-            file.createNewFile();
+        if(!fileDirectory.exists() && !fileDirectory.isDirectory()){
+            fileDirectory.mkdir();
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+        }else{
+            if (!file.exists()) {
+                file.createNewFile();
+            }
         }
         PrintWriter out  = new PrintWriter
                 (file.getAbsoluteFile());
@@ -95,4 +103,25 @@ public class TextFile extends ArrayList<String> {
         }
     }
 
+    public static void createFile(String fileName){
+        File file = new File(fileName);
+        File fileDirectory = new File(getFrontPath(file.getAbsolutePath()));
+        System.out.println(file.getAbsoluteFile());
+        if(!fileDirectory.exists() && !fileDirectory.isDirectory()){
+            fileDirectory.mkdir();
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+        }else{
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+        }
+    }
+
+    public static String getFrontPath(String filePath){
+        String frontPath;
+        frontPath = filePath.substring(0,filePath.lastIndexOf("\\"));
+        return frontPath;
+    }
 }
