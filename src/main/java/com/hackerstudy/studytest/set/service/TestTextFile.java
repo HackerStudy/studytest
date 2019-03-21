@@ -18,19 +18,11 @@ public class TestTextFile {
         String path2  = "D:\\ToolSoftWare\\IDEA\\WorkSpace\\MyProject\\studytest\\src\\main\\java\\com\\hackerstudy\\studytest\\set\\util\\TextFile.java";
         try {
             //读取文件内容
-            String file = TextFile.read(pa);
-            System.out.println("fileContent:");
-            System.out.println(file);
-
+            String file = testRead(pa);
             //将文件内容写入到指定文件
-            TextFile.write("src\\main\\resources\\static\\file\\test\\text\\TextFile.txt", file);
-
+            testWrite(file);
             //以换行号切分，读取指定文件
-            TextFile text = new TextFile(path2);
-            for(String s:text){
-                System.out.println(s);
-            }
-
+            testTextFile(path2);
             //判断一个存在的路径是文件还是文件夹
             boolean isFile = TextFile.isFile(pa);
 
@@ -46,22 +38,64 @@ public class TestTextFile {
             //复制文件夹
             TextFile.copyDirectory("src\\main\\resources\\static\\file\\test\\target","src\\main\\resources\\static\\file\\copy");
             //按匹配字母或数字或下划线汉字的正则表达式来读取文件里面的内容
-            TreeSet<String> words = new TreeSet<String>(new TextFile("src\\main\\java\\com\\hackerstudy\\studytest\\set\\util\\TextFile.java", "\\W+"));
-            /*TreeSet<String> words = new TreeSet<String>(new TextFile(path2, "\\W+"));
-            非词符号切分  ,
-            1. 写完整路径  D:\\xx\\xx\\xx\\bigwork\\src\\io\\TextFile.java
-            2.相对于此项目（bigwork）的路径（src\io\xxx.java）
-            */
-            // 字母开头的 码值小于  H
-            for (String string : words.headSet("H")) {
-                System.out.println(string);
-            }
+            testTreeSet();
         }catch (IOException e){
             e.printStackTrace();
             System.out.println(e.getMessage());
         }catch (Exception e){
             e.printStackTrace();
             System.out.println(e.getMessage());
+        }
+    }
+
+    /**
+     * 测试TextFile的read()方法
+     * @param pa
+     * @return
+     * @throws IOException
+     */
+    public static String testRead(String pa) throws IOException{
+        String file = TextFile.read(pa);
+        System.out.println("fileContent:");
+        System.out.println(file);
+        return file;
+    }
+
+    /**
+     * 测试TextFile的write()方法
+     * @param file
+     * @throws IOException
+     */
+    public static void testWrite(String file) throws IOException{
+        TextFile.write("src\\main\\resources\\static\\file\\test\\text\\TextFile.txt", file);
+    }
+
+    /**
+     * 测试TextFile的TextFile(String fileName)的构造方法
+     * @param path2
+     * @throws IOException
+     */
+    public static void testTextFile(String path2) throws IOException{
+        TextFile text = new TextFile(path2);
+        for(String s:text){
+            System.out.println(s);
+        }
+    }
+
+    /**
+     * 测试TextFile的TextFile(String fileName,String splitter)的构造方法
+     * @throws IOException
+     */
+    public static void testTreeSet() throws IOException{
+        TreeSet<String> words = new TreeSet<String>(new TextFile("src\\main\\java\\com\\hackerstudy\\studytest\\set\\util\\TextFile.java", "\\W+"));
+            /*TreeSet<String> words = new TreeSet<String>(new TextFile(path2, "\\W+"));
+            非词符号切分  ,
+            1. 写完整路径  D:\\xx\\xx\\xx\\bigwork\\src\\io\\TextFile.java
+            2.相对于此项目（bigwork）的路径（src\io\xxx.java）
+            */
+        // 字母开头的 码值小于  H
+        for (String string : words.headSet("H")) {
+            System.out.println(string);
         }
     }
 }

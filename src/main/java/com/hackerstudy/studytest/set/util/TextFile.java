@@ -8,7 +8,7 @@ import java.util.*;
 
 /**
  * @class: TextFile
- * @description: 封装对文件的读、写操作，提供简洁的接口
+ * @description: 封装对文件的读、写、复制操作，提供简洁的接口
  * @author: yangpeng03614
  * @date: 2019-03-20 14:30
  */
@@ -91,7 +91,7 @@ public class TextFile extends ArrayList<String> {
     }
 
     /**
-     * 根据文件路径创建空文件（如果文件存在则不创建、文件不存在则创建文件）
+     * 根据文件路径创建空文件或文件夹（如果文件或文件夹存在则不创建、文件或文件夹不存在则创建文件或文件夹）
      * 使用file自带的mkdirs()方法
      * @param fileName
      * @throws IOException
@@ -212,7 +212,7 @@ public class TextFile extends ArrayList<String> {
     }
 
     /**
-     * 判断该路径下是文件还是文件夹
+     * 判断该实际路径下是文件还是文件夹
      * @param path
      * @return
      */
@@ -229,7 +229,7 @@ public class TextFile extends ArrayList<String> {
     }
 
     /**
-     * 判断该路径下是文件还是文件夹
+     * 判断该虚拟路径下是文件还是文件夹
      * @param path
      * @return
      */
