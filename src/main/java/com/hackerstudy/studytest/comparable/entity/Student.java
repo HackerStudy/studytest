@@ -78,6 +78,7 @@ public class Student implements Comparable<Student>{
     /**
      * 自定义排序
      * 先按照order排序，order越小的排在前面，order相等时按score排序，score越大排在前面
+     * this指代的后一个Student
      * @param student
      * @return
      */
@@ -86,7 +87,7 @@ public class Student implements Comparable<Student>{
         if(this.order>student.order){
             return 1;
         }else if(this.order.compareTo(student.order)==0){
-            return this.score.compareTo(student.score);
+            return student.score.compareTo(this.score);
         }else{
             return -1;
         }

@@ -4,3 +4,5 @@
 3. interview(一道有趣的面试题)打包成了jar包'
 4. set--hashset、treeset
 5. TextFile工具类(read()、write()、copy()等方法)
+6. queue(队列)
+7. comparable接口实现排序
