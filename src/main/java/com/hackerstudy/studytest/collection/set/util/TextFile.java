@@ -1,6 +1,4 @@
-package com.hackerstudy.studytest.set.util;
-
-import com.sun.xml.internal.fastinfoset.algorithm.BooleanEncodingAlgorithm;
+package com.hackerstudy.studytest.collection.set.util;
 
 import java.io.*;
 import java.nio.file.Files;

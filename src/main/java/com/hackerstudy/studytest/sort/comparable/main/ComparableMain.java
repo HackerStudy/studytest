@@ -1,6 +1,6 @@
-package com.hackerstudy.studytest.comparable.main;
+package com.hackerstudy.studytest.sort.comparable.main;
 
-import com.hackerstudy.studytest.comparable.entity.Student;
+import com.hackerstudy.studytest.sort.comparable.entity.Student;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -36,7 +36,7 @@ public class ComparableMain {
         for(Student s:students){
             System.out.println(s);
         }
-        Collections.sort(students);
+        Collections.sort(students); //collection.sort()默认的排序是自然排序（升序）
         System.out.println("------排序后------");
         for (Student s1:students){
             System.out.println(s1);

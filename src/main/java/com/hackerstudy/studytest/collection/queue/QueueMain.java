@@ -1,6 +1,5 @@
-package com.hackerstudy.studytest.queue;
+package com.hackerstudy.studytest.collection.queue;
 
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 

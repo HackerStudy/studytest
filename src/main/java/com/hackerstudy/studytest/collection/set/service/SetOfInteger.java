@@ -1,4 +1,4 @@
-package com.hackerstudy.studytest.set.service;
+package com.hackerstudy.studytest.collection.set.service;
 
 import java.util.HashSet;
 import java.util.Random;

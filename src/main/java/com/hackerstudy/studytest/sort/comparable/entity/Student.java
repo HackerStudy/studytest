@@ -1,4 +1,4 @@
-package com.hackerstudy.studytest.comparable.entity;
+package com.hackerstudy.studytest.sort.comparable.entity;
 
 /**
  * @class: Student

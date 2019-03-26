@@ -1,4 +1,4 @@
-package com.hackerstudy.studytest.failfast;
+package com.hackerstudy.studytest.collection.failfast;
 
 import java.util.ArrayList;
 import java.util.Iterator;

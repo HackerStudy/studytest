@@ -6,3 +6,5 @@
 5. TextFile工具类(read()、write()、copy()等方法)
 6. queue(队列)
 7. comparable接口实现排序
+8. Collections.sort()实现升序和降序
+9. comparator接口实现排序

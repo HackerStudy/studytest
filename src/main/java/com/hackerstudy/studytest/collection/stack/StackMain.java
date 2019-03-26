@@ -1,4 +1,4 @@
-package com.hackerstudy.studytest.stack;
+package com.hackerstudy.studytest.collection.stack;
 
 import java.util.ListIterator;
 import java.util.Stack;
