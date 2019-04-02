@@ -8,3 +8,5 @@
 7. comparable接口实现排序
 8. Collections.sort()实现升序和降序
 9. comparator接口实现排序
+10. lambda表达式写Map的forEach
+11. foreach和Iterable

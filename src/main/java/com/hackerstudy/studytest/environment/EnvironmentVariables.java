@@ -21,7 +21,7 @@ public class EnvironmentVariables {
             System.out.println(entry.getKey()+": "+entry.getValue());
         }
 
-        //lambda表达式写佛Map的forEach
+        //lambda表达式写Map的forEach
         System.getenv().forEach((key,value) -> {
             System.out.println(key+": "+value);
         });
