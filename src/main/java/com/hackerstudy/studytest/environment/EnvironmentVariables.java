@@ -6,7 +6,7 @@ import java.util.Map;
 
 /**
  * @class: EnvironmentVariables
- * @description: 显示所有的操作系统环境变量
+ * @description: 显示系统中所有的环境变量
  * @author: yangpeng03614
  * @date: 2019-03-29 15:27
  */
