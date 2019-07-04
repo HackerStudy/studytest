@@ -14,12 +14,12 @@ public class AnnotationResolver {
      * lengthDetection注解的解析
      */
     public static void lengthResolver(Object obj) throws IllegalAccessException,Exception{
-        Class<?> clazz = obj.getClass();
-        Field[] fields = clazz.getDeclaredFields(); //获取该对象的所有属性
+        Class<?> clazz = obj.getClass(); //通过反射机制获取对象
+        Field[] fields = clazz.getDeclaredFields(); //获取该对象的所有成员变量
         for (Field field:fields){
             LengthDetection lengthDetection = field.getAnnotation(LengthDetection.class);//获取属性上的@LengthDetection注解
             if(lengthDetection != null){
-                field.setAccessible(true);//设置属性可访问
+                field.setAccessible(true);//破解私有属性
                 if("class java.lang.String".equals(field.getGenericType().toString())){//字符串类型的才判断长度
                     String value = (String)field.get(obj);
                     System.out.println("fieldValue:"+value);
