@@ -12,3 +12,5 @@
 11. foreach和Iterable
 12. java中简单的注解实现
 13. java中简单多线程实现
+14. java中继承和多态的使用
+15. java中的i++和++i
