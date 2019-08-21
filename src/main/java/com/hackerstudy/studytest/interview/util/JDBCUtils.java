@@ -1,6 +1,14 @@
 package com.hackerstudy.studytest.interview.util;
 
+import com.hackerstudy.studytest.io.util.FileUtil;
+import lombok.extern.slf4j.Slf4j;
+
+import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
+import java.util.Map;
 
 /**
  * @class: JDBCUtils
@@ -8,22 +16,46 @@ import java.sql.*;
  * @author: yangpeng03614
  * @date: 2019-03-14 14:57
  */
+@Slf4j
 public class JDBCUtils {
     private static String driver="com.mysql.jdbc.Driver";
     private static String url="jdbc:mysql://192.168.58.50:3306/interview";
-    private static String user="root";
+    private static String username="root";
     private static String password="123456";
 
     private JDBCUtils(){}
 
     static {
         /**
-         * 驱动注册
+         * 驱动注册和加载参数
          */
         try {
+            Class jClass = JDBCUtils.class;
+            Map<String,String> argMap = FileUtil.getJDBCArg();
+            Constructor constructor = jClass.getDeclaredConstructor(null);
+            constructor.setAccessible(true);
+            Object obj = constructor.newInstance();
+            for(Map.Entry<String, String> entry : argMap.entrySet()){
+                String mapKey = entry.getKey();
+                String mapValue = entry.getValue();
+                Field f = jClass.getDeclaredField(mapKey);
+                f.set(obj,mapValue);
+            }
             Class.forName(driver);
         } catch (ClassNotFoundException e) {
             throw new ExceptionInInitializerError(e);
+        } catch (IOException e) {
+            log.error(e.getMessage(),e);
+        } catch (InstantiationException e) {
+            log.error(e.getMessage(),e);
+        } catch (InvocationTargetException e) {
+            log.error(e.getMessage(),e);
+        } catch (NoSuchMethodException e) {
+            log.error(e.getMessage(),e);
+        } catch (IllegalAccessException e) {
+            log.error(e.getMessage(),e);
+        } catch (NoSuchFieldException e) {
+            log.error(e.getMessage(),e);
         }
 
     }
@@ -34,7 +66,7 @@ public class JDBCUtils {
      * @throws SQLException
      */
     public static Connection getConnection() throws SQLException{
-        return DriverManager.getConnection(url, user, password);
+        return DriverManager.getConnection(url, username, password);
     }
 
     /**
@@ -43,7 +75,7 @@ public class JDBCUtils {
      * @param st
      * @param rs
      */
-    public static void colseResource(Connection conn, Statement st, ResultSet rs) {
+    public static void closeResource(Connection conn, Statement st, ResultSet rs) {
         closeResultSet(rs);
         closeStatement(st);
         closeConnection(conn);
