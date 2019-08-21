@@ -22,7 +22,6 @@ import java.util.Map;
  */
 public class InterviewDao {
 
-
     public List<InterViewDataVo> getTableData(){
         List<InterViewDataVo> tableDataList = new ArrayList<InterViewDataVo>();
         Connection conn = null;
@@ -68,7 +67,7 @@ public class InterviewDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            JDBCUtils.colseResource(conn, st, rs);
+            JDBCUtils.closeResource(conn, st, rs);
         }
         return tableDataList;
     }
@@ -103,7 +102,7 @@ public class InterviewDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            JDBCUtils.colseResource(conn, st, rs);
+            JDBCUtils.closeResource(conn, st, rs);
         }
         return units;
     }
@@ -140,7 +139,7 @@ public class InterviewDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {
-            JDBCUtils.colseResource(conn, st, rs);
+            JDBCUtils.closeResource(conn, st, rs);
         }
         return levels;
     }
