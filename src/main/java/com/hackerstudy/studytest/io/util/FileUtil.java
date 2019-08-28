@@ -42,4 +42,24 @@ public class FileUtil {
         return argMap;
     }
 
+    /**
+     * 从配置文件中获取jdbc的参数
+     * @throws IOException
+     */
+    public static String getFileContent(String filePathname) throws IOException {
+        File file = new File(filePathname);
+        if(!file.exists()){
+            throw new IOException("该文件不存在");
+        }
+        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8") );
+        StringBuffer content = new StringBuffer();
+        String s;
+        while((s=in.readLine())!=null){
+            content.append(s);
+            content.append("\n");
+        }
+        in.close();
+        return content.toString();
+    }
+
 }
