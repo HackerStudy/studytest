@@ -2,7 +2,7 @@ package com.hackerstudy.studytest.interview.dao;
 
 import com.hackerstudy.studytest.interview.entity.Level;
 import com.hackerstudy.studytest.interview.entity.Unit;
-import com.hackerstudy.studytest.interview.util.JDBCUtils;
+import com.hackerstudy.studytest.util.JDBCUtils;
 import com.hackerstudy.studytest.interview.vo.InterViewDataVo;
 
 import java.sql.Connection;
@@ -10,9 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @class: InterviewDao

@@ -1,4 +1,4 @@
-package com.hackerstudy.studytest.collection.set.util;
+package com.hackerstudy.studytest.util;
 
 import java.io.*;
 import java.nio.file.Files;

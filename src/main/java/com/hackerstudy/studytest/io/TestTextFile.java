@@ -1,6 +1,6 @@
-package com.hackerstudy.studytest.collection.set.service;
+package com.hackerstudy.studytest.io;
 
-import com.hackerstudy.studytest.collection.set.util.TextFile;
+import com.hackerstudy.studytest.util.TextFile;
 
 import java.io.IOException;
 import java.util.TreeSet;

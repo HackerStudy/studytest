@@ -1,4 +1,4 @@
-package com.hackerstudy.studytest.interview.util;
+package com.hackerstudy.studytest.util;
 
 /**
  * @class: StringUtils

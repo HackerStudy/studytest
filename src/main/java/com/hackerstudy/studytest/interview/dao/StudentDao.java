@@ -1,8 +1,7 @@
 package com.hackerstudy.studytest.interview.dao;
 
-import com.hackerstudy.studytest.interview.entity.Level;
 import com.hackerstudy.studytest.interview.entity.Student;
-import com.hackerstudy.studytest.interview.util.JDBCUtils;
+import com.hackerstudy.studytest.util.JDBCUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import java.sql.Connection;

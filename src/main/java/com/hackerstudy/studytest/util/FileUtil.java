@@ -1,16 +1,12 @@
-package com.hackerstudy.studytest.io.util;
+package com.hackerstudy.studytest.util;
 
-import com.hackerstudy.studytest.interview.service.GroupAndOrderService;
-import com.hackerstudy.studytest.interview.util.JDBCUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
-import java.util.logging.Logger;
 
 /**
  * @class: FileUtil

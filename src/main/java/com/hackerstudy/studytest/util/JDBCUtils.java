@@ -1,6 +1,5 @@
-package com.hackerstudy.studytest.interview.util;
+package com.hackerstudy.studytest.util;
 
-import com.hackerstudy.studytest.io.util.FileUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;

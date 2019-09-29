@@ -1,7 +1,7 @@
 package com.hackerstudy.studytest.interview.service;
 
-import com.hackerstudy.studytest.interview.util.StringUtils;
-import com.hackerstudy.studytest.io.util.FileUtil;
+import com.hackerstudy.studytest.util.StringUtils;
+import com.hackerstudy.studytest.util.FileUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;

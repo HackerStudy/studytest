@@ -1,6 +1,6 @@
 package com.hackerstudy.studytest.interview.service;
 
-import com.hackerstudy.studytest.interview.util.SortAndSearchUtils;
+import com.hackerstudy.studytest.util.SortAndSearchUtils;
 import lombok.extern.slf4j.Slf4j;
 
 /**
