@@ -76,6 +76,70 @@ public class StringMain {
         System.out.println(start.startsWith("ab"));
         System.out.print("endWith(): ");
         System.out.println(start.endsWith("eq"));
+
+        //从前索引，从后索引查找某个字符的索引出现的起始位置
+        int startIndex = start.indexOf("ab");
+        int endIndex = start.lastIndexOf("b");
+        System.out.print("indexOf(): ");
+        System.out.println(startIndex);
+        System.out.print("lastIndexOf(): ");
+        System.out.println(endIndex);
+
+        //返回一个新的string以包含参数指定的子字符串
+        String childString = start.substring(0,2);
+        System.out.print("subString():");
+        System.out.println(childString);
+
+        //返回一个新的String对象，内容为原始的String对象加上参数的String
+        String newConcat = start.concat("HackerStudy");
+        System.out.print("concat(): ");
+        System.out.println(newConcat);
+
+        //替换字符
+        String replaceString = newConcat.replace("HackerStudy","replace");
+        System.out.print("replace():");
+        System.out.println(replaceString);
+
+        //大小写转换
+        String caseString = newConcat.toUpperCase();
+        System.out.print("toUpperCase(): ");
+        System.out.println(caseString);
+        caseString = newConcat.toLowerCase();
+        System.out.print("toLowerCase(): ");
+        System.out.println(caseString);
+
+        //将字符两端的空白字符删除
+        String trimString = " qeweq qeqw  ";
+        String newTrimString = trimString.trim();
+        System.out.print("trim(): ");
+        System.out.println(newTrimString);
+
+        //替换所有的空白字符
+        String replaceAllString = trimString.replaceAll(" ","");
+        System.out.print("replaceAll(): ");
+        System.out.println(replaceAllString);
+
+        //将其他类型转换为字符串
+        String intString =  String.valueOf(2);
+        System.out.print("valueOf(): ");
+        System.out.println(intString);
+
+        //如果常量池中存在当前字符串, 就会直接返回当前字符串. 如果常量池中没有此字符串, 会将此字符串放入常量池中后, 再返回
+        String internString = intString.intern();
+        System.out.print("intern(): ");
+        System.out.println(internString==intString);
+    }
+
+    /**
+     * 格式化输出
+     */
+    public static void fomatPrint(){
+        int i = 1;
+        double b = 2.33434;
+        System.out.println("row:"+i+","+b);
+        //printf和format是一个效果
+        System.out.printf("row: %d,%f\n",i,b);
+        System.out.format("row: %d,%f\n",i,b);
     }
 
     /**
@@ -91,5 +155,8 @@ public class StringMain {
 
         //测试string类型中的各个方法
         TestStringMethod();
+
+        //格式化输出
+        fomatPrint();
     }
 }
