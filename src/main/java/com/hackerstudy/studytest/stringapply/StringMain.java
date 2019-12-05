@@ -1,5 +1,7 @@
 package com.hackerstudy.studytest.stringapply;
 
+import java.util.Formatter;
+
 /**
  * @class: StringMain
  * @description: String的测试类
@@ -140,6 +142,40 @@ public class StringMain {
         //printf和format是一个效果
         System.out.printf("row: %d,%f\n",i,b);
         System.out.format("row: %d,%f\n",i,b);
+
+        //通过formatter类来实现格式化输出（传入输出路径，格式化样式，数据）
+        Formatter f = new Formatter(System.out);
+        f.format("%d,%f,%s",i,b,"你好");
+    }
+
+    /**
+     * 格式化说明符
+     */
+    public static void fomatSpecifier(){
+        Formatter f = new Formatter(System.out);
+        f.format("\n%-5s %15d %5.2f\n","你好",13,12.345);
+    }
+
+    /**
+     * 格式化转换（最常用类型的转换）
+     */
+    public static void formatConversion(){
+        Formatter f = new Formatter(System.out);
+        f.format("%s\n","123");
+        //字符串转int（十进制）
+        f.format("%d\n",123);
+        //字符串转Unicode字符
+        f.format("%c\n",'a');
+        //字符串转boolean
+        f.format("%b\n",true);
+        //字符串转浮点数（十进制）
+        f.format("%f\n",123.45);
+        //字符串转浮点数（科学计数）
+        f.format("%e\n",123);
+        //字符串转整数（十六进制）
+        f.format("%x\n",123);
+        //字符串转散列码（十六进制）
+        f.format("%h\n",123);
     }
 
     /**
@@ -158,5 +194,11 @@ public class StringMain {
 
         //格式化输出
         fomatPrint();
+
+        //格式化说明符
+        fomatSpecifier();
+
+        //格式化转换
+        formatConversion();
     }
 }
