@@ -1,5 +1,6 @@
 package com.hackerstudy.studytest.stringapply;
 
+import java.io.File;
 import java.util.Formatter;
 
 /**
@@ -179,6 +180,34 @@ public class StringMain {
     }
 
     /**
+     * String.format格式化内容输出（与Farmatter.format起到的效果差不多）
+     */
+    public static void stringFormat(){
+        String out = "";
+        out = String.format("%d %s %2.2f",10,"你好",12.345);
+        System.out.println(out);
+    }
+
+    /**
+     * 二进制转16进制查看的工具类
+     */
+    public static String twoHexToSixteenHex(byte[] data){
+        StringBuilder stringBuilder = new StringBuilder();
+        int i=0;
+        for(byte b:data){
+            if(i%6==0){
+                stringBuilder.append(String.format("%05X: ",i));
+            }
+            stringBuilder.append(String.format("%02X ",i));
+            i++;
+            if(i%6==0){
+                stringBuilder.append("\n");
+            }
+        }
+        stringBuilder.append("\n");
+        return stringBuilder.toString();
+    }
+    /**
      * main方法
      * @param args
      */
@@ -199,6 +228,9 @@ public class StringMain {
         fomatSpecifier();
 
         //格式化转换
-        formatConversion();
+        //formatConversion();
+
+        //String.format格式化输出
+        stringFormat();
     }
 }
