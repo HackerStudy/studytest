@@ -1,6 +1,10 @@
 package com.hackerstudy.studytest.regex;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @class: StringRegEx
@@ -9,6 +13,13 @@ import java.util.Arrays;
  * @date: 2020-01-12 10:44
  */
 public class StringRegEx {
+
+    /**
+     * 匹配电话号码的表达式
+     */
+    public static String phoneRegEx = "(0\\d{2,3}-\\d{7,8})|(1[3578]\\d{9})";
+
+    public static String emailRegEx = "[\\w]+@[A-Za-z0-9]+(\\.[A-Za-z0-9]{2,4}){1,2}";
 
     /**
      * 是否包含某个东西
@@ -26,6 +37,21 @@ public class StringRegEx {
     public static String[] splitString(String originalString,String regEx){
         String[] result = originalString.split(regEx);
         return result;
+    }
+
+    /**
+     * 获取正则中包含的内容
+     * @return
+     */
+    public static List<String> getContainStringList(String originalString,String regEx){
+        List<String> returnStringList = new ArrayList<>();
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(originalString);
+        while(m.find()) {
+            returnStringList.add(m.group());
+
+        }
+        return returnStringList;
     }
 
     /**
@@ -54,5 +80,15 @@ public class StringRegEx {
         //替换全部
         String replaceString = originalString.replaceAll("\\w","你好");
         System.out.println(replaceString);
+
+        //获取文本中的电话号码
+        String phoneStringText = "21312adasda 0731-43022312 15673331468";
+        List<String> phoneList = getContainStringList(phoneStringText,phoneRegEx);
+        System.out.println(phoneList.toString());
+
+        //获取邮箱号
+        String emailStringText = "21312adasda 0731-43022312 15673331468,17821312@qq.com qweqwe@sina.com qweqwe@163.com";
+        List<String> emailList = getContainStringList(emailStringText,emailRegEx);
+        System.out.println(emailList.toString());
     }
 }
