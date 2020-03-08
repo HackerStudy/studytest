@@ -19,6 +19,9 @@ public class StringRegEx {
      */
     public static String phoneRegEx = "(0\\d{2,3}-\\d{7,8})|(1[3578]\\d{9})";
 
+    /**
+     * 邮箱
+     */
     public static String emailRegEx = "[\\w]+@[A-Za-z0-9]+(\\.[A-Za-z0-9]{2,4}){1,2}";
 
     /**
