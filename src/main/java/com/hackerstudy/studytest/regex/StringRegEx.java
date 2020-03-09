@@ -48,13 +48,28 @@ public class StringRegEx {
      */
     public static List<String> getContainStringList(String originalString,String regEx){
         List<String> returnStringList = new ArrayList<>();
-        Pattern p = Pattern.compile(regEx);
-        Matcher m = p.matcher(originalString);
-        while(m.find()) {
-            returnStringList.add(m.group());
-
+        Pattern p = Pattern.compile(regEx); //表达式编译
+        Matcher m = p.matcher(originalString); //匹配
+        while(m.find()) {  //下一个匹配到的序列
+            returnStringList.add(m.group()); //获取匹配到的内容
         }
         return returnStringList;
+    }
+
+    /**
+     * 分组匹配的例子
+     */
+    public static void groupMatcher(){
+        String originalString = "abd23123**asdasd21312*qwe3123";
+        String regEx = "([a-z]+)([0-9]+)";
+        Pattern p = Pattern.compile(regEx); //表达式编译
+        Matcher m = p.matcher(originalString); //匹配
+        while(m.find()) {  //下一个匹配到的序列
+            System.out.println(m.group()); //匹配该表达式的全部
+            System.out.println(m.group(0));//匹配该表达式的全部
+            System.out.println(m.group(1));//匹配该表达式的第一个分组
+            System.out.println(m.group(2));//匹配该表达式的第二个分组
+        }
     }
 
     /**
@@ -93,5 +108,8 @@ public class StringRegEx {
         String emailStringText = "21312adasda 0731-43022312 15673331468,17821312@qq.com qweqwe@sina.com qweqwe@163.com";
         List<String> emailList = getContainStringList(emailStringText,emailRegEx);
         System.out.println(emailList.toString());
+
+        //分组匹配
+        groupMatcher();
     }
 }
