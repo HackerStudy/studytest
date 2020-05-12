@@ -20,7 +20,7 @@ public class StringRegEx {
     public static String phoneRegEx = "(0\\d{2,3}-\\d{7,8})|(1[3578]\\d{9})";
 
     /**
-     * 邮箱
+     * 匹配邮箱的表达式
      */
     public static String emailRegEx = "[\\w]+@[A-Za-z0-9]+(\\.[A-Za-z0-9]{2,4}){1,2}";
 
@@ -54,6 +54,24 @@ public class StringRegEx {
             returnStringList.add(m.group()); //获取匹配到的内容
         }
         return returnStringList;
+    }
+
+    /**
+     * 只替换匹配到的第一个内容
+     * @param originalString
+     * @param regEx
+     */
+    public static void replaceStringFirst(String originalString,String regEx){
+        originalString.replaceFirst(regEx,"替换");
+    }
+
+    /**
+     * 替换匹配到的全部内容
+     * @param originalString
+     * @param regEx
+     */
+    public static void replaceStringAll(String originalString,String regEx){
+        originalString.replaceAll(regEx,"替换");
     }
 
     /**
