@@ -1,11 +1,9 @@
-package com.hackerstudy.studytest.proxy;
+package com.hackerstudy.studytest.reflect.proxy;
 
 import org.junit.Test;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
-
-import static org.junit.Assert.*;
 
 /**
  * @class: StudentProxyTest

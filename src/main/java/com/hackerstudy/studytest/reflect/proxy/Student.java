@@ -1,6 +1,5 @@
-package com.hackerstudy.studytest.proxy;
+package com.hackerstudy.studytest.reflect.proxy;
 
-import com.hackerstudy.studytest.util.ReflexUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

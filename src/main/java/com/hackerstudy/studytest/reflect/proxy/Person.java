@@ -1,4 +1,4 @@
-package com.hackerstudy.studytest.proxy;
+package com.hackerstudy.studytest.reflect.proxy;
 
 /**
  * @class: Person
