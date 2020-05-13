@@ -22,4 +22,10 @@ public class ReflexUtilsTest {
         String className = "com.hackerstudy.studytest.util.ReflexUtils";
         ReflexUtils.ergodicClassInfo(className);
     }
+
+    @Test
+    public void testErgodicClassInfo() {
+        Class c=ReflexUtils.class;
+        ReflexUtils.ergodicClassInfo(c);
+    }
 }
