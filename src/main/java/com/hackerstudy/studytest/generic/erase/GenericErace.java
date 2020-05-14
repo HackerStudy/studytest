@@ -13,6 +13,7 @@ import java.util.*;
  */
 @Slf4j
 public class GenericErace {
+
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<Integer>();
         Map<String,Object> map = new HashMap<String,Object>();
@@ -42,10 +43,12 @@ public class GenericErace {
             }
         };
 
-
         /*
         泛型的擦除及其边界
          */
+        EraceClass<String> eraceClass = new EraceClass<String>("id");
+
+        eraceClass.objF();
     }
 
     /**
