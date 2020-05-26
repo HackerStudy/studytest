@@ -11,7 +11,10 @@ import java.util.Queue;
  */
 public class QueueMain {
     public static void main(String[] args) {
+        //linkedList实现的队列
         testQueue();
+        //PriorityQueue实现的优先级队列
+        testPriorityQueue();
     }
 
     /**
@@ -27,7 +30,18 @@ public class QueueMain {
         }
     }
 
+    /**
+     * 优先级队列PriorityQueue
+     */
     public static void testPriorityQueue(){
-
+        ToDoList toDoList= new ToDoList();
+        toDoList.add("niaho",'a',1);
+        toDoList.add("niahowqe",'a',2);
+        toDoList.add("niahozxcz",'b',1);
+        toDoList.add("niahoxzc",'c',1);
+        toDoList.add("niahocv",'c',1);
+        while (!toDoList.isEmpty()){
+            System.out.println(toDoList.remove());
+        }
     }
 }
