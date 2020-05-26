@@ -1,9 +1,6 @@
 package com.hackerstudy.studytest.collection.set;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * @class: SetOfInteger
@@ -37,6 +34,38 @@ public class SetOfInteger {
     }
 
     /**
+     * linkedset
+     */
+    public static void linkedsetOfInteger(){
+        Random rand = new Random(47);
+        Set<Integer> set = new LinkedHashSet<>();
+        for(int i=0;i<10000;i++){
+            set.add(rand.nextInt(30));
+        }
+        System.out.println(set);
+    }
+
+    /**
+     * SortedSet
+     */
+    public static void SortedSetOfInteger(){
+        Random rand = new Random(47);
+        SortedSet<Integer> set = new TreeSet<Integer>();
+        for(int i=0;i<10000;i++){
+            set.add(rand.nextInt(30));
+        }
+        System.out.println(set);
+        Integer low = set.first();
+        Integer high = set.last();
+        System.out.println(low);
+        System.out.println(high);
+        SortedSet<Integer> childSet = set.subSet(low,high);
+        System.out.println(childSet);
+        System.out.println(set.headSet(low));
+        System.out.println(set.tailSet(high));
+    }
+
+    /**
      * main方法
      * @param args
      */
@@ -45,5 +74,9 @@ public class SetOfInteger {
         setOfInteger();
         //TreeSet
         sortSetOfInteger();
+        //linkedHashSet
+        linkedsetOfInteger();
+        //SortedSet
+        SortedSetOfInteger();
     }
 }
