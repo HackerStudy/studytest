@@ -17,12 +17,11 @@ public class SlowMap<K,V> extends AbstractMap<K,V> {
         V oldValue = get(key);
         if(keys.contains(key)){
             values.set(keys.indexOf(key),value);
-            return oldValue;
         }else{
             keys.add(key);
             values.add(value);
-            return value;
         }
+        return oldValue;
     }
 
     @Override
