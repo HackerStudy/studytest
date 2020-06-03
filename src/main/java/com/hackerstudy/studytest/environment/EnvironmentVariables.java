@@ -1,9 +1,5 @@
 package com.hackerstudy.studytest.environment;
 
-import sun.awt.SunHints;
-
-import java.util.Map;
-
 /**
  * @class: EnvironmentVariables
  * @description: 显示系统中所有的环境变量
@@ -17,13 +13,16 @@ public class EnvironmentVariables {
      * @param args
      */
     public static void main(String[] args) {
-        for(Map.Entry entry:System.getenv().entrySet()){
-            System.out.println(entry.getKey()+": "+entry.getValue());
-        }
+        //for(Map.Entry entry:System.getenv().entrySet()){
+        //    System.out.println(entry.getKey()+": "+entry.getValue());
+        //}
+        //
+        ////lambda表达式写Map的forEach
+        //System.getenv().forEach((key,value) -> {
+        //    System.out.println(key+": "+value);
+        //});
 
-        //lambda表达式写Map的forEach
-        System.getenv().forEach((key,value) -> {
-            System.out.println(key+": "+value);
-        });
+        //获取系统环境的信息
+        System.getProperties().list(System.out);
     }
 }
