@@ -70,6 +70,13 @@
       <version>2.9.6</version>
     </dependency>
 
+    <!--xml的序列化和反序列化包-->
+    <dependency>
+      <groupId>com.thoughtworks.xstream</groupId>
+      <artifactId>xstream</artifactId>
+      <version>1.4.4</version>
+    </dependency>
+
   </dependencies>
 
   <build>
