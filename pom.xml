@@ -77,6 +77,18 @@
       <version>1.4.4</version>
     </dependency>
 
+    <!--谷歌的自动注册服务-->
+    <dependency>
+        <groupId>com.google.auto.service</groupId>
+        <artifactId>auto-service</artifactId>
+        <version>1.0-rc7</version>
+    </dependency>
+    <dependency>
+        <groupId>com.google.auto</groupId>
+        <artifactId>auto-common</artifactId>
+        <version>0.10</version>
+    </dependency>
+
   </dependencies>
 
   <build>
