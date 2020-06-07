@@ -23,6 +23,7 @@ public class SimplePriorities implements Runnable {
             for(int i=0;i<100000;i++){
                 b +=(Math.PI+Math.E)/(double) i;
                 if(i%1000==0){
+                    //让步
                     Thread.yield();
                 }
             }

@@ -2,10 +2,7 @@ package com.hackerstudy.studytest.concurrent.executorpool;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 /**
  * @class: CallableDemo
@@ -32,6 +29,19 @@ public class CallableDemo {
             }finally {
                 exec.shutdown();
             }
+        }
+
+        //用Thread控制Callable
+        Callable<String> callable = new TaskWithResult(1);
+        FutureTask<String> futureTask = new FutureTask<String>(callable);
+        Thread thread = new Thread(futureTask);
+        thread.start();
+        try {
+            System.out.println(futureTask.get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
         }
     }
 }
