@@ -23,7 +23,7 @@ public class LisfOffTwoThread extends Thread{
         while(countDown>0){
             System.out.println("倒计时"+Thread.currentThread().getName()+"："+countDown);
             try {
-                sleep((int) Math.random() * 10);
+                sleep((int) Math.random() * 10); //休眠
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

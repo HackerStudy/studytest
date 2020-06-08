@@ -26,7 +26,7 @@ public class ConcurrentTest {
         }
         //join该线程后面的代码等待该线程终止后才执行
         try {
-            lisfOffThreeThread.join();
+            lisfOffThreeThread.join(); //强制执行
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

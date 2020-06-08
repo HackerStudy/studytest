@@ -26,7 +26,7 @@ public class LisfOffThreeRunable implements Runnable{
             System.out.println("倒计时"+Thread.currentThread().getName()+"："+countDown);
             //线程休眠进入等待状态释放自己的锁
             try {
-                sleep((int) Math.random() * 10);
+                sleep((int) Math.random() * 10); //休眠
                 //Thread.yield(); //声明我已经执行完生命周期中最重要的部分了，现在正是切换给其他任务执行一段时间的好时机
             } catch (InterruptedException e) {
                 e.printStackTrace();
