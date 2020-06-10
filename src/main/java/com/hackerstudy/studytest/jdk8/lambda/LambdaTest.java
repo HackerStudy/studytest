@@ -1,4 +1,4 @@
-package com.hackerstudy.studytest.lambda;
+package com.hackerstudy.studytest.jdk8.lambda;
 
 import java.util.Arrays;
 import java.util.List;
