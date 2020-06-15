@@ -11,6 +11,7 @@ public class SuperMain {
         test();
         test2();
         test3();
+        testA();
     }
 
     public static void test(){
@@ -26,5 +27,11 @@ public class SuperMain {
     public static void test3(){
         SuperClass superClass = new Son2Class();
         System.out.println(((Son2Class)superClass).i);
+    }
+
+    public static void testA(){
+        A aClass= new B();
+        System.out.println(aClass.a);
+        aClass.fun();
     }
 }
