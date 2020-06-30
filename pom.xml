@@ -74,7 +74,7 @@
     <dependency>
       <groupId>com.thoughtworks.xstream</groupId>
       <artifactId>xstream</artifactId>
-      <version>1.4.6</version>
+      <version>1.4.10-java7</version>
     </dependency>
 
     <!--谷歌的自动注册服务-->
