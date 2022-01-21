@@ -48,7 +48,7 @@ public class ToDoItem implements Comparable<ToDoItem>{
 
     @Override
     public int compareTo(ToDoItem toDoItem) {
-        if(this.primary>toDoItem.primary){
+        if(this.primary>toDoItem.primary){  //都是和前一个进行比较的this 是当前的，toDoItem是前一个，也就是说当前价格大于前一个的价格，返回1，表示升序排列
             return 1;
         }else if(this.primary==toDoItem.primary){
             if(this.secondary>toDoItem.secondary){
