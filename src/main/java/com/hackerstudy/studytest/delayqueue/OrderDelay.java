@@ -1,6 +1,5 @@
 package com.hackerstudy.studytest.delayqueue;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +16,6 @@ import java.util.concurrent.TimeUnit;
  */
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
 public class OrderDelay implements Delayed {
 
@@ -26,6 +24,11 @@ public class OrderDelay implements Delayed {
 
     //超时时间的时间戳
     private long timeout;
+
+    public OrderDelay(Long orderId, long timeout) {
+        this.orderId = orderId;
+        this.timeout = timeout + System.nanoTime();
+    }
 
     /**
      * 返回距离你自定义的超时时间还有多少
