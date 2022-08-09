@@ -28,7 +28,7 @@ public class OrderDelay implements Delayed {
     private long timeout;
 
     /**
-     * 返回距离你自定义的超时时间还有多少
+     * 返回距离超时时间还有多少时间
      * @param unit the time unit
      * @return
      */
@@ -38,7 +38,7 @@ public class OrderDelay implements Delayed {
     }
 
     /**
-     * 还有多久时间超时的比较
+     * 对BlockingQueue（无界阻塞队列）中元素进行排序
      * @param o the object to be compared.
      * @return
      */
