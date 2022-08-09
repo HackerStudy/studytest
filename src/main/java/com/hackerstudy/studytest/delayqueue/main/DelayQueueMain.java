@@ -24,17 +24,15 @@ public class DelayQueueMain {
      * jdk 的DelayQueue实现延时队列
      */
     private static void jdkDelayQueue() {
-        DelayQueue<OrderDelay> queue = new DelayQueue<OrderDelay>();
+        DelayQueue<OrderDelay> queue = new DelayQueue<>();
         Long orderId = 1L;
         //延迟3秒
-        long timeout = TimeUnit.NANOSECONDS.convert(3, TimeUnit.SECONDS);
-        OrderDelay orderDelay = OrderDelay.builder()
-                .orderId(orderId)
-                .timeout(timeout)
-                .build();
+        long timeout = TimeUnit.NANOSECONDS.convert(5, TimeUnit.SECONDS);
+        System.out.println("延时时间："+timeout);
+        OrderDelay orderDelay = new OrderDelay(orderId,timeout);
         queue.put(orderDelay);
         StopWatch sw = new StopWatch();
-        sw.start();
+        sw.start("jdk延迟队列");
         try {
             OrderDelay take = queue.take();
             System.out.println("获取到延时队列中的数据"+JSON.toJSONString(take));
@@ -42,6 +40,6 @@ public class DelayQueueMain {
             throw new RuntimeException(e);
         }
         sw.stop();
-        System.out.println("总耗时："+ sw.getTotalTimeMillis());
+        System.out.println("总耗时："+ sw.prettyPrint());
     }
 }
