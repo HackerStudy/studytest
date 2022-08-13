@@ -11,8 +11,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 /**
- * @Class: OrderDelay
- * @Description: 订单的延时数据
+ * @Class: DelayTask
+ * @Description: 延时任务
  * @Author: hacker
  * @Date: 2022-07-22 17:04
  * @Version: 1.0

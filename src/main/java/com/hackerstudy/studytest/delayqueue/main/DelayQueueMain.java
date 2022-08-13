@@ -57,6 +57,9 @@ public class DelayQueueMain {
 
     }
 
+    /**
+     * 消费者
+     */
     private static void consumer(){
         while (true) {
             if (0==delayQueue.size()) {
