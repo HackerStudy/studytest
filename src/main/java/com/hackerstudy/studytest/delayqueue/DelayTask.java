@@ -3,7 +3,6 @@ import com.alibaba.fastjson.JSON;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.util.StopWatch;
 
 import java.util.Objects;
 import java.util.concurrent.Delayed;
@@ -84,12 +83,8 @@ public class DelayTask<T> implements Delayed,Runnable {
     @Override
     public void run() {
         if (Objects.nonNull(taskParam)) {
-            StopWatch sw = new StopWatch();
-            sw.start("延迟队列（DelayQue）");
             log.info("获取到要处理的数据：{}", JSON.toJSONString(taskParam));
             function.apply(taskParam);
-            sw.stop();
-            log.debug("延迟任务处理耗时：{}", sw.prettyPrint());
         }
     }
 }
