@@ -37,6 +37,15 @@ public class HashedWheelTimerTest {
             512,
             true);
 
+    /**
+     * 超时任务3000毫秒，超时之后，由hashedWheelTimer类中的worker线程，执行超时之后的任务。
+     * hashedWheelTimer有512个槽（相当于一个圆的512分之一），每移动一个槽的时间是100毫秒。
+     * 任务需要经过的tick数为：3000/100=30次。             (等待时长/tickDuration)
+     * 任务需要经过的轮数为：10次/512次/轮=0轮。             (tick总次数/ticksPerWheel)
+     * 因为任务超时后不能马上被worker线程执行，需要等worker线程移到相应卡槽位置时才会执行，因此说执行时间不精确。
+     * hashedWheelTimer的核心是Worker线程，主要负责每过tickDuration时间就累加一次tick。
+     * 同时，也负责执行到期的timeout任务，此外，还负责添加timeout任务到指定的wheel中。
+     */
     public static void main(String[] args) {
         Timeout timeout = product();
 
