@@ -95,11 +95,11 @@ public class TreeNodeWeightCalculation {
             }else if(node.getId() == 1 ){
                 node.setWeight(2);
             }else if(node.getId() == 2 ){
-                node.setWeight(2);
+                node.setWeight(3);
             }else if(node.getId() == 3 ){
                 node.setWeight(4);
             }else if(node.getId() == 4 ){
-                node.setWeight(4);
+                node.setWeight(5);
             }
         });
     }
@@ -108,17 +108,15 @@ public class TreeNodeWeightCalculation {
      * 获取树节点的list
      * @return
      */
-    public static TreeNode buildTree(List<TreeNode> nodeList,TreeNode parent) {
-        TreeNode rootNode = null;
+    public static void buildTree(List<TreeNode> nodeList,TreeNode parent) {
         List<TreeNode> childList = !CollectionUtils.isEmpty(parent.getChildList())?parent.getChildList():new ArrayList<>();
         for (TreeNode node : nodeList) {
             if (Objects.equals(node.getParentId(), parent.getId())) {
-                TreeNode childNode = buildTree(nodeList, node);
-                childList.add(childNode);
+                buildTree(nodeList, node);
+                childList.add(node);
             }
         }
-        rootNode = parent;
-        return rootNode;
+        parent.setChildList(childList);
     }
 
 

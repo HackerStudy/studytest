@@ -6,6 +6,8 @@ import com.hackerstudy.studytest.weight.TreeNodeWeightCalculation;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * @class: NodeWeightCalculation
@@ -45,13 +47,21 @@ public class TreeNodeWeightCalculationMain {
 
         //赋值权重
         TreeNodeWeightCalculation.setTreeNodeListWeight(treeNodeList);
+        log.info("setTreeNodeListWeight={}", JSON.toJSONString(treeNodeList));
 
-        TreeNode treeNode = treeNodeList.stream().filter(s -> s.getId().equals(0)).findFirst().get();
-        //构建成树结构
-        TreeNode root = TreeNodeWeightCalculation.buildTree(treeNodeList, treeNode);
+        //筛选出顶层节点
+        List<TreeNode> rootNodeList = treeNodeList.stream().filter(s -> Objects.isNull(s.getParentId())).collect(Collectors.toList());
+        log.info("start - rootNodeList={}", JSON.toJSONString(treeNodeList));
 
-        //递归计算节点树的权重
-        TreeNodeWeightCalculation.calculateWeight(root);
-        log.info("end - root={}", JSON.toJSONString(root));
+        for (TreeNode treeNode : rootNodeList) {
+            //构建成树结构
+            TreeNodeWeightCalculation.buildTree(treeNodeList, treeNode);
+            log.info("treeNode={}", JSON.toJSONString(treeNode));
+
+            //递归计算节点树的权重
+            TreeNodeWeightCalculation.calculateWeight(treeNode);
+            log.info("calculateWeight={}", JSON.toJSONString(treeNode));
+        }
+        log.info("end - rootNodeList={}", JSON.toJSONString(rootNodeList));
     }
 }
