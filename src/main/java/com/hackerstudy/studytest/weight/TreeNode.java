@@ -26,6 +26,9 @@ public class TreeNode implements Serializable {
     /** 权重 */
     private Integer weight;
 
+    /** 层次 */
+    private Integer level;
+
     /** 父节点ID */
     private Integer parentId;
 

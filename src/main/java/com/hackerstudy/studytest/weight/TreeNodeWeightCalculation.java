@@ -108,11 +108,12 @@ public class TreeNodeWeightCalculation {
      * 获取树节点的list
      * @return
      */
-    public static void buildTree(List<TreeNode> nodeList,TreeNode parent) {
+    public static void buildTree(List<TreeNode> nodeList,TreeNode parent,int level) {
+        parent.setLevel(level);
         List<TreeNode> childList = !CollectionUtils.isEmpty(parent.getChildList())?parent.getChildList():new ArrayList<>();
         for (TreeNode node : nodeList) {
             if (Objects.equals(node.getParentId(), parent.getId())) {
-                buildTree(nodeList, node);
+                buildTree(nodeList, node,level+1);
                 childList.add(node);
             }
         }
@@ -136,4 +137,27 @@ public class TreeNodeWeightCalculation {
         });
         treeNode.setWeight(sum.get());
     }
+
+    /**
+     * 将树摊开成list
+     * @param nodeList
+     * @return
+     */
+    public static List<TreeNode> flattenTreeToList(List<TreeNode> nodeList) {
+        List<TreeNode> flattenedList = new ArrayList<>();
+        for (TreeNode node : nodeList) {
+            TreeNode treeNode = new TreeNode();
+            treeNode.setId(node.getId());
+            treeNode.setWeight(node.getWeight());
+            treeNode.setLevel(node.getLevel());
+            treeNode.setParentId(node.getParentId());
+            flattenedList.add(treeNode);
+            if (!node.getChildList().isEmpty()) {
+                List<TreeNode> childList = flattenTreeToList(node.getChildList());
+                flattenedList.addAll(childList);
+            }
+        }
+        return flattenedList;
+    }
+
 }

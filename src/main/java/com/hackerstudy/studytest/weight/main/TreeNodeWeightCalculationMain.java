@@ -6,6 +6,7 @@ import com.hackerstudy.studytest.weight.TreeNodeWeightCalculation;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -54,14 +55,26 @@ public class TreeNodeWeightCalculationMain {
         log.info("start - rootNodeList={}", JSON.toJSONString(treeNodeList));
 
         for (TreeNode treeNode : rootNodeList) {
-            //构建成树结构
-            TreeNodeWeightCalculation.buildTree(treeNodeList, treeNode);
+            //构建成树结构-并分层
+            TreeNodeWeightCalculation.buildTree(treeNodeList, treeNode,0);
             log.info("treeNode={}", JSON.toJSONString(treeNode));
 
             //递归计算节点树的权重
             TreeNodeWeightCalculation.calculateWeight(treeNode);
             log.info("calculateWeight={}", JSON.toJSONString(treeNode));
         }
-        log.info("end - rootNodeList={}", JSON.toJSONString(rootNodeList));
+        log.info("顶层节点 - rootNodeList={}", JSON.toJSONString(rootNodeList));
+
+        //将树摊开成list
+        List<TreeNode> flattenedList = TreeNodeWeightCalculation.flattenTreeToList(rootNodeList);
+        log.info("flattenedList={}", JSON.toJSONString(flattenedList));
+
+        //按层次分组
+        Map<Integer, List<TreeNode>> levelMap = flattenedList.stream().collect(Collectors.groupingBy(TreeNode::getLevel));
+        log.info("levelMap={}", JSON.toJSONString(levelMap));
+
+        //按树的id转map
+        Map<Integer, TreeNode> idMap = flattenedList.stream().collect(Collectors.toMap(TreeNode::getId, treeNode->treeNode,(v1,v2)->v1));
+        log.info("idMap={}", JSON.toJSONString(idMap));
     }
 }
